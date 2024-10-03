@@ -1,0 +1,13 @@
+
+#typing-effect {
+    min-height: 1.2em;
+}
+
+.blink {
+    animation: blinker 1s step-end infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
