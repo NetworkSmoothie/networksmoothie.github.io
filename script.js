@@ -23,5 +23,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         orderSummary.innerHTML = summary;
 
         // Play a sound effect when the order is placed
-        const orderSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...'); // Base64 encoded short beep sound
+        const orderSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...');
         orderSound.play();
+    });
+});
