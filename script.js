@@ -1,29 +1,27 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Typing effect
-    const text = "Welcome to my retro webpage!";
-    const typingElement = document.getElementById('typing-effect');
-    let i = 0;
+    const form = document.getElementById('smoothie-order-form');
+    const orderSummary = document.getElementById('order-summary');
 
-    function typeWriter() {
-        if (i < text.length) {
-            typingElement.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        } else {
-            // Start blinking after typing is complete
-            typingElement.classList.add('blink');
-        }
-    }
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const smoothie = document.getElementById('smoothie').value;
+        const size = document.getElementById('size').value;
+        const extras = Array.from(document.querySelectorAll('input[name="extras"]:checked'))
+            .map(checkbox => checkbox.value);
 
-    typeWriter();
+        // Create order summary
+        const summary = `
+            <h2>Order Summary</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Smoothie:</strong> ${smoothie}</p>
+            <p><strong>Size:</strong> ${size}</p>
+            <p><strong>Extras:</strong> ${extras.length > 0 ? extras.join(', ') : 'None'}</p>
+        `;
 
-    // Add hover sound effect to links
-    const links = document.getElementsByTagName('a');
-    const hoverSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...'); // Base64 encoded short beep sound
+        orderSummary.innerHTML = summary;
 
-    for (let link of links) {
-        link.addEventListener('mouseenter', () => {
-            hoverSound.play();
-        });
-    }
-});
+        // Play a sound effect when the order is placed
+        const orderSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...'); // Base64 encoded short beep sound
+        orderSound.play();

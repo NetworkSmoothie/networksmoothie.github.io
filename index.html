@@ -3,20 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharon Lourdes - Retro Personal Page</title>
+    <title>Smoothie Order Form</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Sharon Lourdes</h1>
-        <p id="typing-effect"></p>
-        <p>Connect with me:</p>
-        <p>
-            <a href="https://x.com/sharonlourdes" target="_blank">Twitter: @sharonlourdes</a>
-        </p>
-        <p>
-            <a href="https://www.linkedin.com/in/sharonlourdes/" target="_blank">LinkedIn: Sharon Lourdes</a>
-        </p>
+        <h1>Smoothie Order Form</h1>
+        <form id="smoothie-order-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="smoothie">Choose your smoothie:</label>
+            <select id="smoothie" name="smoothie" required>
+                <option value="">Select a smoothie</option>
+                <option value="berry-blast">Berry Blast</option>
+                <option value="tropical-paradise">Tropical Paradise</option>
+                <option value="green-machine">Green Machine</option>
+                <option value="mango-tango">Mango Tango</option>
+            </select>
+
+            <label for="size">Size:</label>
+            <select id="size" name="size" required>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+
+            <label for="extras">Extras:</label>
+            <div>
+                <input type="checkbox" id="protein" name="extras" value="protein">
+                <label for="protein">Protein Powder</label>
+            </div>
+            <div>
+                <input type="checkbox" id="vitamins" name="extras" value="vitamins">
+                <label for="vitamins">Vitamin Boost</label>
+            </div>
+
+            <button type="submit">Place Order</button>
+        </form>
+        <div id="order-summary"></div>
     </div>
     <script src="script.js"></script>
 </body>
